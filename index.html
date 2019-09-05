@@ -33,9 +33,7 @@
             LiveAgentChatButton.oldOnCloseFunction_ = LiveAgentChatButton.onCloseFunction_;
             LiveAgentChatButton.onCloseFunction_ = function() {
                 LiveAgentChatButton.oldOnCloseFunction_();
-                if (FinAiMobile) {
-                    FinAiMobile.onChatClosed();
-                }
+                FinAiMobile.onChatClosed();
             };
             setTimeout(function() {
                 if (LiveAgent) {
@@ -46,8 +44,6 @@
                     LiveAgent.addContactField('customId', AuthenticatedUserId);
                     LiveAgent.addContactField('processId', urlParams.get('ProcessId'));
                     LiveAgentChatButton.onClick();
-                } else {
-                    console.warn('LiveAgent is not defined!');
                 }
             }, 1000);
         });
