@@ -30,14 +30,14 @@
         })(document, 'https://finai.ladesk.com/scripts/track.js', function(e) {
             LiveAgent.instance.isMobileBrowser = false;
             LiveAgentChatButton = LiveAgent.createButton('0c913194', e);
-            LiveAgentChatButton.oldOnCloseFunction_ = LiveAgentChatButton.onCloseFunction_;
+            /*LiveAgentChatButton.oldOnCloseFunction_ = LiveAgentChatButton.onCloseFunction_;
             LiveAgentChatButton.onCloseFunction_ = function() {
 			console.log('onCloseFunction_ called');
                 LiveAgentChatButton.oldOnCloseFunction_();
                 if (FinAiMobile) {
                     FinAiMobile.onChatClosed();
                 }
-            };
+            };*/
             setTimeout(function() {
                 if (LiveAgent) {
                     const urlParams = new URLSearchParams(window.location.search);
