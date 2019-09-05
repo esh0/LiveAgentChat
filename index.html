@@ -43,8 +43,6 @@
                     const urlParams = new URLSearchParams(window.location.search);
                     const AuthenticatedUserId = urlParams.get('AuthenticatedUserId');
                     const email = AuthenticatedUserId + '@' + window.location.host;
-                    console.log('AuthenticatedUserId = ' + AuthenticatedUserId);
-                    console.log('ProcessId = ' + urlParams.get('ProcessId'));
                     LiveAgent.addUserDetail('email', email);
                     LiveAgent.addContactField('customId', AuthenticatedUserId);
                     LiveAgent.addContactField('processId', urlParams.get('ProcessId'));
