@@ -32,6 +32,7 @@
             LiveAgentChatButton = LiveAgent.createButton('0c913194', e);
             LiveAgentChatButton.oldOnCloseFunction_ = LiveAgentChatButton.onCloseFunction_;
             LiveAgentChatButton.onCloseFunction_ = function() {
+			console.log('onCloseFunction_ called');
                 LiveAgentChatButton.oldOnCloseFunction_();
                 if (FinAiMobile) {
                     FinAiMobile.onChatClosed();
