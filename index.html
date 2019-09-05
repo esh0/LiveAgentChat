@@ -32,10 +32,12 @@
             LiveAgentChatButton = LiveAgent.createButton('0c913194', e);
             setTimeout(function() {
                 if (LiveAgent) {
-                    const email = '$AuthenticatedUserId' + '@' + window.location.host;
+		    const urlParams = new URLSearchParams(window.location.search);
+		    const AuthenticatedUserId = urlParams.get('AuthenticatedUserId');
+                    const email = AuthenticatedUserId + '@' + window.location.host;
                     LiveAgent.addUserDetail('email', email);
-                    LiveAgent.addContactField('customId', '$AuthenticatedUserId');
-                    LiveAgent.addContactField('processId', '$ProcessId');
+                    LiveAgent.addContactField('customId', AuthenticatedUserId);
+                    LiveAgent.addContactField('processId', urlParams.get('ProcessId'));
                     LiveAgentChatButton.onClick();
                 } else {
                     console.warn('LiveAgent is not defined!');
