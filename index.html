@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<style>
+		@media (max-width: 600px) {
+		  .i-embedded-chat {
+			width:100% !important;
+			height:100% !important;
+		  }
+		}
+	</style>
+</head>
+
+<body>
+    <script>
+        (function(d, src, c) {
+            var t = d.scripts[d.scripts.length - 1],
+                s = d.createElement('script');
+            s.id = 'la_x2s6df8d';
+            s.async = true;
+            s.src = src;
+            s.onload = s.onreadystatechange = function() {
+                var rs = this.readyState;
+                if (rs && rs != 'complete' && rs != 'loaded') {
+                    return;
+                }
+                c(this);
+            };
+            t.parentElement.insertBefore(s, t.nextSibling);
+        })(document, 'https://finai.ladesk.com/scripts/track.js', function(e) {
+            LiveAgent.instance.isMobileBrowser = false;
+            LiveAgentChatButton = LiveAgent.createButton('0c913194', e);
+            setTimeout(function() {
+                if (LiveAgent) {
+                    const email = '$AuthenticatedUserId' + '@' + window.location.host;
+                    LiveAgent.addUserDetail('email', email);
+                    LiveAgent.addContactField('customId', '$AuthenticatedUserId');
+                    LiveAgent.addContactField('processId', '$ProcessId');
+                    LiveAgentChatButton.onClick();
+                } else {
+                    console.warn('LiveAgent is not defined!');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
